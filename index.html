@@ -48,7 +48,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">MyBootstrapSite</a>
+        <a class="navbar-brand" href="index.html">WHIPLASH</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,26 +65,28 @@
 <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="image1.png" class="d-block w-100" alt="Slide 1">
-      <div class="carousel-caption">
+      <img src="images/image1.png" class="d-block w-100" alt="Slide 1">
+      <div class="carousel-caption d-flex justify-content-center align-items-center">
+       <div class="text-center">
         <h3>Whiplash</h3>
         <p>aespa</p>
-      </div>
+       </div>
+      </div> 
+    </div>  
+    <div class="carousel-item">
+      <img src="images/image2.png" class="d-block w-100" alt="Slide 2">
     </div>
     <div class="carousel-item">
-      <img src="image2.png" class="d-block w-100" alt="Slide 2">
+      <img src="images/image3.png" class="d-block w-100" alt="Slide 3">
     </div>
     <div class="carousel-item">
-      <img src="image3.png" class="d-block w-100" alt="Slide 3">
-    </div>
-    <div class="carousel-item">
-      <img src="image4.png" class="d-block w-100" alt="Slide 3">
+      <img src="images/image4.png" class="d-block w-100" alt="Slide 3">
     </div>
     <div class="overlay-image-container">
-      <img src="overlay-image1.png" alt="Overlay Image" class="overlay-image">
+      <img src="images/overlay-image1.png" alt="Overlay Image" class="overlay-image">
     </div>
     <div class="overlay-image-container">
-      <img src="overlay-image2.png" alt="Overlay Image" class="overlay-image blink">
+      <img src="images/overlay-image2.png" alt="Overlay Image" class="overlay-image blink id="lightbulb"">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
@@ -103,7 +105,7 @@
       <a href="about.html" class="btn btn-primary">Learn More</a>
     </div>
     <div class="col-md-6">
-      <img src="image5.png" width="90px" height="100px" class="img-fluid rounded shadow" alt="About Us">        
+      <img src="images/image5.png" width="90px" height="100px" class="img-fluid rounded shadow" alt="About Us">        
     </div>
   </div>
 </div>
@@ -114,7 +116,7 @@
   <div class="row justify-content-center">
     <div class="col-md-4">
       <div class="card">
-        <img src="image6.png" class="card-img-top" alt="Service 1">
+        <img src="images/image6.png" class="card-img-top" alt="Service 1">
         <div class="card-body">
           <h5 class="card-title">Web Development</h5>
           <p class="card-text">We build scalable and modern websites.</p>
@@ -124,7 +126,7 @@
     </div>
     <div class="col-md-4">
       <div class="card">
-        <img src="image7.png" class="card-img-top" alt="Service 2">
+        <img src="images/image7.png" class="card-img-top" alt="Service 2">
         <div class="card-body">
           <h5 class="card-title">UI/UX Design</h5>
           <p class="card-text">Designing intuitive and user-friendly interfaces.</p>
@@ -147,6 +149,31 @@
             document.getElementById("mute-control").innerText = "Play";
         }
     });
+});
+</script>
+
+<script>
+    const audioElement = document.getElementById('audio');
+const blinkElement = document.querySelector('.blink');
+
+// Assume you have a function to get the BPM of the audio
+function getBPM(audio) {
+  // This is a placeholder; you need to implement actual BPM detection
+  return 120; // Example BPM
+}
+
+const bpm = getBPM(audioElement);
+const interval = 60000 / bpm; // Convert BPM to milliseconds
+
+function blink() {
+  blinkElement.classList.toggle('active');
+}
+
+setInterval(blink, interval);
+
+// Optional: Play audio when ready
+audioElement?.addEventListener('canplay', () => {
+  audioElement?.play();
 });
 </script>
 
