@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+    .carousel-container {
+  position: relative;
+}
+
+.overlay-image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.overlay-image {
+  z-index: 1; /* Ensure it's on top of the carousel */
+}
+
+.blink {
+  opacity: 1;
+  transition: opacity 0.1s;
+}
+
+.blink.active {
+  opacity: 0;
+}
+</style>
+
+</head>
+<body>
+<audio id="backgroundAudio" loop>
+    <source src="bg-music.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+<div id="mute-control" style="position: absolute; bottom: 20px; right: 20px; cursor: pointer; color: white;">
+    Play
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">MyBootstrapSite</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="image1.png" class="d-block w-100" alt="Slide 1">
+      <div class="carousel-caption">
+        <h3>Whiplash</h3>
+        <p>aespa</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="image2.png" class="d-block w-100" alt="Slide 2">
+    </div>
+    <div class="carousel-item">
+      <img src="image3.png" class="d-block w-100" alt="Slide 3">
+    </div>
+    <div class="carousel-item">
+      <img src="image4.png" class="d-block w-100" alt="Slide 3">
+    </div>
+    <div class="overlay-image-container">
+      <img src="overlay-image1.png" alt="Overlay Image" class="overlay-image">
+    </div>
+    <div class="overlay-image-container">
+      <img src="overlay-image2.png" alt="Overlay Image" class="overlay-image blink">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6">
+      <h2>About Us</h2>
+      <p>We specialize in creating modern, responsive websites.</p>
+      <a href="about.html" class="btn btn-primary">Learn More</a>
+    </div>
+    <div class="col-md-6">
+      <img src="image5.png" width="90px" height="100px" class="img-fluid rounded shadow" alt="About Us">        
+    </div>
+  </div>
+</div>
+ 
+<!-- Services Section -->
+<div class="container mt-5">
+  <h3 class="text-center">Our Services</h3>
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="image6.png" class="card-img-top" alt="Service 1">
+        <div class="card-body">
+          <h5 class="card-title">Web Development</h5>
+          <p class="card-text">We build scalable and modern websites.</p>
+          <a href="web-development.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="image7.png" class="card-img-top" alt="Service 2">
+        <div class="card-body">
+          <h5 class="card-title">UI/UX Design</h5>
+          <p class="card-text">Designing intuitive and user-friendly interfaces.</p>
+          <a href="ui-ux-design.html" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("mute-control").addEventListener("click", function() {
+        var audio = document.getElementById("backgroundAudio");
+        if (audio.paused) {
+            audio.play();
+            document.getElementById("mute-control").innerText = "Pause";
+        } else {
+            audio.pause();
+            document.getElementById("mute-control").innerText = "Play";
+        }
+    });
+});
+</script>
+
+<footer class="bg-dark text-white py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <h5>About Us</h5>
+        <p>We create innovative and responsive web applications.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white">Home</a></li>
+          <li><a href="#" class="text-white">Services</a></li>
+          <li><a href="#" class="text-white">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 text-center">
+        <h5>Follow Us</h5>
+        <ul class="list-unstyled">  
+          <li><a href="#" class="text-white">Facebook</a></li>
+          <li><a href="#" class="text-white">Twitter</a></li>
+          <li></li><a href="#" class="text-white">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <p class="text-center">&copy; 2024 MyWebsite. All Rights Reserved.</p>
+  </div>
+</footer>
