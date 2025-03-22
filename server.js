@@ -2,12 +2,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-const directoryPath = '/storage/emulated/0/Week5_Bootstrap_Website';
+const indexPath = path.join(__dirname, 'index.html');
 
-app.use(express.static(directoryPath));
+app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(directoryPath + '/index.html'));
+    res.sendFile(indexPath);
 });
 
 app.listen(3000, () => {
